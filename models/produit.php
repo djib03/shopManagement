@@ -31,14 +31,15 @@ class Produit
         $sql = "SELECT * FROM produits";
         $result = $this->conn->query($sql);
 
+        $produits = [];
+
         if ($result->num_rows > 0) {
             // Output data of each row
             while ($row = $result->fetch_assoc()) {
-                echo "id: " . $row["id"] . " - Nom du Produit : " . $row["nom"] . "<br>" . "Prix : " . $row["prix"] . "<br>" . "Description : " . $row["prod_description"] . "<br>" . "Quantité : " . $row["quantite"] . "<br>" . "Catégorie : " . $row["categorie"] . "<br><br>";
+                $produits[] = $row;
             }
-        } else {
-            echo "0 results";
         }
+        return $produits;
     }
     // Récupérer un produit par son ID
     public  function getById($id) {}
@@ -55,24 +56,26 @@ class Produit
     // Mettre à jour un produit existant
     public  function update()
     {
-        $sqlUpdateProd =$this->conn->prepare( "UPDATE produits SET nom= ?, prix= ?, prod_description= ?, quantite= ?, categorie= ? WHERE id= ?");
+        $sqlUpdateProd = $this->conn->prepare("UPDATE produits SET nom= ?, prix= ?, prod_description= ?, quantite= ?, categorie= ? WHERE id= ?");
 
-        $sqlUpdateProd->bind_pram( "sssis", $this->nom, $this->prix, $this->prod_description, $this->quantite, $this->categorie);
+        $sqlUpdateProd->bind_param("sssis", $this->nom, $this->prix, $this->prod_description, $this->quantite, $this->categorie);
 
-        $sqlUpdateProd->execute();
-
-
-
-
-        if (($this->conn->query($sqlUpdateProd) === true)) {
-            echo "Produit inserer avec succes";;
+        if ($sqlUpdateProd->execute() === true) {
+            echo "Produit mis à jour avec succès";
+        } else {
+            echo "Error: " . $sqlUpdateProd->error;
         }
     }
+
+
+
     // Supprimer un produit
-    public  function delete($id) {
+    public  function delete($id)
+    {
         $sqlDeleteProd = "DELETE FROM produits WHERE id= $id";
 
         if (($this->conn->query($sqlDeleteProd) === true)) {
+
             echo "Produit supprimer avec succes";
         }
     }
