@@ -41,8 +41,6 @@ class Produit
         }
         return $produits;
     }
-    // Récupérer un produit par son ID
-    public  function getById($id) {}
     // Créer un nouveau produit
     public  function create()
     {

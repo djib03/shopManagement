@@ -1,6 +1,8 @@
 <?php
 
-require './models/produit.php';
+require_once './models/produit.php';
+// À ajouter en tête de liste.php et produitController.php
+require '../config/database.php';
 
 
 $nom = $_POST['nom'];
@@ -22,5 +24,3 @@ $produit = new Produit(
 );
 
 $produit->create();
-
-

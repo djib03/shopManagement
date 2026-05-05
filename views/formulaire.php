@@ -17,7 +17,7 @@
         <label for="prod_description">Description:</label>
         <textarea id="prod_description" name="prod_description" required></textarea>
         <br>
-        <label for="prix">Prix:</label>
+        <label for="prix">Prix:</   >
         <input type="number" id="prix" name="prix" step="0.01" required>
         <br>
         <label for="quantite">Quantité:</label>

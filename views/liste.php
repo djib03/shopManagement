@@ -1,5 +1,6 @@
 <?php
-require '../models/produit.php';
+require './models/produit.php';
+require './config/database.php';
 
 $produit = new Produit(
     null,
