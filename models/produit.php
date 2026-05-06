@@ -48,7 +48,7 @@ class Produit
 
 
         if (($this->conn->query($sql) === true)) {
-            echo "Produit inserer avec succes";
+           // echo "Produit inserer avec succes";
         } else
             echo 'erreur' . $this->conn->error;
     }

@@ -17,7 +17,7 @@ $sql =  " CREATE DATABASE IF NOT EXISTS $database";
 
 
 if ($conn->query($sql) === true) {
-    echo "Database"  . $database . " Created  ";
+  //  echo "Database"  . $database . " Created  ";
     $conn->select_db($database);
 } else {
     die("Erreur SQL" . $conn->error);
@@ -34,7 +34,7 @@ $sqlCreateTable = "CREATE TABLE IF NOT EXISTS produits (
 )";
 
 if ($conn->query($sqlCreateTable    ) === true) {
-    echo "Table produits created successfully";
+    // echo "Table produits created successfully";
 } else {
     die("Error creating table: " . $conn->error);
 }

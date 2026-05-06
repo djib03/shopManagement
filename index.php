@@ -9,7 +9,8 @@ require_once __DIR__. '/models/produit.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopMan</title>
+    <title>Gestion de boutique</title>
+    <link rel="stylesheet" href="views/style.css">
 </head>
 
 <body>
