@@ -11,10 +11,10 @@ class Produit
     private $conn; // Connexion à la base de données
 
 
-    public function __construct($id, $nom, $prix, $prod_description, $quantite, $categorie, $conn)
+    public function __construct($nom, $prix, $prod_description, $quantite, $categorie, $conn)
     {
 
-        $this->id = $id;
+
         $this->nom = $nom;
         $this->prix = $prix;
         $this->prod_description = $prod_description;
@@ -44,12 +44,13 @@ class Produit
     // Créer un nouveau produit
     public  function create()
     {
-        $sql = "INSERT INTO produit(nom, prix, prod_description, quantite, categorie ) VALUE($this->nom, $this->prix, $this->prod_description, $this->quantite, $this->categorie)";
+        $sql = "INSERT INTO produits(nom, prix, prod_description, quantite, categorie ) VALUE('$this->nom', $this->prix, '$this->prod_description', $this->quantite, '$this->categorie')";
 
 
         if (($this->conn->query($sql) === true)) {
             echo "Produit inserer avec succes";
-        }
+        } else
+            echo 'erreur' . $this->conn->error;
     }
     // Mettre à jour un produit existant
     public  function update()

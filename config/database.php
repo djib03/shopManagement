@@ -5,7 +5,7 @@ $username = "root";
 $password = "";
 
 
-$conn = new mysqli($host, $username);
+$conn = new mysqli($host, $username, $password);
 
 if ($conn->connect_error) {
     die("Connection failure" . $conn->error);
@@ -33,7 +33,7 @@ $sqlCreateTable = "CREATE TABLE IF NOT EXISTS produits (
     categorie VARCHAR(255) NOT NULL
 )";
 
-if ($conn->query($sqlCreateTable) === true) {
+if ($conn->query($sqlCreateTable    ) === true) {
     echo "Table produits created successfully";
 } else {
     die("Error creating table: " . $conn->error);

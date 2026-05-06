@@ -1,9 +1,8 @@
 <?php
-require './models/produit.php';
-require './config/database.php';
+require_once __DIR__. './models/produit.php';
+require_once __DIR__ . './config/database.php';
 
 $produit = new Produit(
-    null,
     '',
     '',
     '',

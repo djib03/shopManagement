@@ -1,8 +1,6 @@
 <?php
-
-require_once './models/produit.php';
-// À ajouter en tête de liste.php et produitController.php
-require '../config/database.php';
+include '../models/produit.php';
+include '../config/database.php';
 
 
 $nom = $_POST['nom'];
@@ -13,7 +11,6 @@ $categorie = $_POST['categorie'];
 
 
 $produit = new Produit(
-    null,
     $nom,
     $prix,
     $prod_description,
